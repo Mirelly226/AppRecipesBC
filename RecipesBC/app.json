@@ -1,0 +1,26 @@
+{
+  "expo": {
+    "name": "RecipesBC",
+    "slug": "RecipesBC",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/LogoCom.png",
+    "splash": {
+      "image": "./assets/Logo.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#FC5B27"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    }
+  }
+}
