@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Searchbar } from 'react-native-paper';
 
 
-class Search extends Component {
+export default class Search extends Component {
     constructor(props){
         super(props);
         this.state={
@@ -27,5 +27,3 @@ class Search extends Component {
       );
     }
 }
-
-export default Search

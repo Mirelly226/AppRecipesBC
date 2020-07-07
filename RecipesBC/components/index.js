@@ -1,9 +1,9 @@
 import React from 'react';
-import { createStackNavigator } from '@react-navigation/stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
-import { View, Text, TouchableOpacity, StyleSheet, SafeAreaView, FlatList, ImageBackground } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, SafeAreaView, FlatList, ImageBackground, Image } from 'react-native';
 import { IconButton, Colors,  } from 'react-native-paper';
-import Menu from './menu';
+import { FontAwesome, Ionicons } from '@expo/vector-icons';
 import Category from './category';
 import Account from './account';
 import Search from './searchbar';
@@ -89,6 +89,9 @@ function Item(props) {
 function HomeScreen(props) {
     return (
         <View style={styles.container}>
+            <View style={styles.header}>
+                <Image style={styles.logo} source={require('../assets/Logo.png')}/>
+            </View>
             <Search/>
             <View style={styles.content}>
                 <SafeAreaView>
@@ -99,9 +102,6 @@ function HomeScreen(props) {
                     />
                 </SafeAreaView>
             </View>
-            <View style={styles.menu}>
-                <Menu />
-            </View>
         </View>
     );
 }
@@ -110,12 +110,21 @@ const styles = StyleSheet.create({
     container: {
         flex: 1
     },
-    content: {
-        flex: 8,
-        padding: 20
+    header: {
+        flex: 1,
+        backgroundColor: '#FC5B27',
+        alignItems: 'center',
+        paddingTop: 10,
+        justifyContent:'center'
     },
-    menu: {
-        flex: 1
+    logo: {
+        justifyContent: "center",
+        width: '50%',
+        height: '100%'
+    },
+    content: {
+        flex: 7,
+        padding: 20
     },
     item: {
         paddingBottom: 15
@@ -134,7 +143,42 @@ const styles = StyleSheet.create({
     }
 })
 
-const Stack = createStackNavigator();
+const Tab = createBottomTabNavigator();
+
+function App() {
+  return (
+    <NavigationContainer>
+        <Tab.Navigator
+            screenOptions={({ route }) => ({
+                tabBarIcon: ({ focused, color, size }) => {
+                let iconName;
+    
+                if (route.name === 'Inicio') {
+                    iconName = focused
+                    ? 'home'
+                    : 'home';
+                } else if (route.name === 'Categorías') {
+                    iconName = focused ? 'list-ul' : 'list-ul';
+                } else if (route.name === 'Cuenta') {
+                    iconName = focused ? 'user' : 'user';
+                }
+                return <FontAwesome name={iconName} size={size} color={color} />;
+                },
+            })}
+            tabBarOptions={{
+                activeTintColor: 'tomato',
+                inactiveTintColor: 'gray',
+            }}
+        >
+            <Tab.Screen name="Inicio" component={HomeScreen} />
+            <Tab.Screen name="Categorías" component={Category} />
+            <Tab.Screen name="Cuenta" component={Account} />
+        </Tab.Navigator>
+    </NavigationContainer>
+  );
+}
+export default App
+/* const Stack = createStackNavigator();
 
 function App() {
     return (
@@ -146,5 +190,4 @@ function App() {
             </Stack.Navigator>
         </NavigationContainer>
     );
-}
-export default App
+} */
