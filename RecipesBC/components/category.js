@@ -16,7 +16,6 @@ const DataCategories = [
         list: "Lista de recetas"
     }
 ]
-
 function Item(props) {
     return (
         <TouchableOpacity style={styles.item}>
