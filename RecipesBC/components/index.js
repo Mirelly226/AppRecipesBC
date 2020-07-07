@@ -85,7 +85,6 @@ function Item(props) {
         </TouchableOpacity>
     )
 }
-
 function HomeScreen(props) {
     return (
         <View style={styles.container}>
