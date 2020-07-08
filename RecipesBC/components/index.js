@@ -2,7 +2,7 @@ import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
 import { View, Text, TouchableOpacity, StyleSheet, SafeAreaView, FlatList, ImageBackground, Image } from 'react-native';
-import { IconButton, Colors,  } from 'react-native-paper';
+import { IconButton, Colors } from 'react-native-paper';
 import { FontAwesome, Ionicons } from '@expo/vector-icons';
 import Category from './category';
 import Account from './account';
