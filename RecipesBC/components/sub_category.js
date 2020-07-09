@@ -1,6 +1,5 @@
 import React from 'react'
 import { View, Text, TouchableOpacity, StyleSheet, SafeAreaView, FlatList, ImageBackground, Image } from 'react-native';
-import { IconButton, Colors } from 'react-native-paper';
 import Search from './searchbar';
 
 
@@ -74,8 +73,7 @@ function Item(props) {
             <ImageBackground style={styles.image} source={{ uri: props.item.photo }}>
             <View style={{flex: 6}}></View>
             <View style={{flex: 3, alignItems: 'flex-end', padding: 5}}>
-                <IconButton icon="comment" color={Colors.white} size={35} style={styles.review}
-                onPress={() => props.navigation.navigate('Cuenta')}/>
+                
             </View> 
             </ImageBackground>              
         </TouchableOpacity>

@@ -8,6 +8,7 @@ import Category from './category';
 import Account from './account';
 import Search from './searchbar';
 
+
 const DataRecipes = [
     {
         id: "1",
@@ -170,23 +171,10 @@ function App() {
             }}
         >
             <Tab.Screen name="Inicio" component={HomeScreen} />
-            <Tab.Screen name="Categorías" component={Category} />
+            <Tab.Screen name="Categorías" component={Category} />      
             <Tab.Screen name="Cuenta" component={Account} />
         </Tab.Navigator>
     </NavigationContainer>
   );
 }
 export default App
-/* const Stack = createStackNavigator();
-
-function App() {
-    return (
-        <NavigationContainer>
-            <Stack.Navigator>
-                <Stack.Screen name="Recetas B&C" component={HomeScreen} />
-                <Stack.Screen name="Categorías" component={Category} />
-                <Stack.Screen name="Cuenta" component={Account} />
-            </Stack.Navigator>
-        </NavigationContainer>
-    );
-} */

@@ -2,6 +2,8 @@ import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, SafeAreaView, FlatList, ImageBackground, Image } from 'react-native';
 import Search from './searchbar';
 
+
+
 const DataCategories = [
     {
         id: "1",
@@ -18,7 +20,7 @@ const DataCategories = [
 ]
 function Item(props) {
     return (
-        <TouchableOpacity style={styles.item}>
+        <TouchableOpacity onPress={()=>props.navigation.navigate('Screen1')} style={styles.item}>
             <ImageBackground style={styles.image} source={{ uri: props.item.photo }}/>
             <Text style={styles.title} >{props.item.title}</Text>
         </TouchableOpacity>
@@ -84,3 +86,18 @@ const styles = StyleSheet.create({
         position: 'relative'
     }
 })
+
+
+/* const Stack = createStackNavigator();
+
+function App() {
+    return (
+        <NavigationContainer>
+            <Stack.Navigator>
+                <Stack.Screen name="Categorías" component={Category} />
+                <Stack.Screen name="sub_category" component={sub_category} />
+            </Stack.Navigator>
+        </NavigationContainer>
+    );
+}  */
+ 
