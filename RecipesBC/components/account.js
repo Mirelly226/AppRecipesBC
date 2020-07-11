@@ -1,8 +1,8 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
-export default function Account(props){
-    return(
+export default function Account(props) {
+    return (
         <View style={styles.container}>
             <View style={styles.header}>
                 <Text style={styles.title}>Perfil de Usuario</Text>
@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#FC5B27',
         alignItems: 'center',
         paddingTop: 10,
-        justifyContent:'center'
+        justifyContent: 'center'
     },
     content: {
         flex: 8,

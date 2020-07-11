@@ -69,25 +69,25 @@ const DataRecipes = [
 
 function Item(props) {
     return (
-        <TouchableOpacity onPress={() => props.navigation.navigate('Descripcion Receta')} style={styles.item}>
+        <TouchableOpacity onPress={() => props.navigation.navigate('Descripción Receta')} style={styles.item}>
             <Text style={styles.title} >{props.item.title}</Text>
             <ImageBackground style={styles.image} source={{ uri: props.item.photo }}>
-            <View style={{flex: 6}}></View>
-            <View style={{flex: 3, alignItems: 'flex-end', padding: 5}}>
-            <IconButton icon="comment" color={Colors.white} size={35} style={styles.review}
-                onPress={() => props.navigation.navigate('Reseñas')}/>   
-            </View> 
-            </ImageBackground>              
+                <View style={{ flex: 6 }}></View>
+                <View style={{ flex: 3, alignItems: 'flex-end', padding: 5 }}>
+                    <IconButton icon="comment" color={Colors.white} size={35} style={styles.review}
+                        onPress={() => props.navigation.navigate('Reseñas')} />
+                </View>
+            </ImageBackground>
         </TouchableOpacity>
     )
 }
-export default function Recipes({navigation}) {
+export default function Recipes({ navigation }) {
     return (
         <View style={styles.container}>
             <View style={styles.header}>
-                <Image style={styles.logo} source={require('../../assets/Logo.png')}/>
+                <Image style={styles.logo} source={require('../../assets/Logo.png')} />
             </View>
-            <Search/>
+            <Search />
             <View style={styles.content}>
                 <SafeAreaView>
                     <FlatList
@@ -110,7 +110,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#FC5B27',
         alignItems: 'center',
         paddingTop: 10,
-        justifyContent:'center'
+        justifyContent: 'center'
     },
     logo: {
         justifyContent: "center",

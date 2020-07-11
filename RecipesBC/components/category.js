@@ -17,24 +17,24 @@ const DataCategories = [
         list: "Lista de recetas"
     }
 ]
-function Item (props){
+function Item(props) {
     return (
-        
+
         <TouchableOpacity onPress={() => props.navigation.navigate('Recetas')} style={styles.item}>
-            <ImageBackground style={styles.image} source={{ uri: props.item.photo }}/>
+            <ImageBackground style={styles.image} source={{ uri: props.item.photo }} />
             <Text style={styles.title} >{props.item.title}</Text>
         </TouchableOpacity>
     )
-}   
+}
 
 
-export default function Category({navigation}) {
+export default function Category({ navigation }) {
     return (
         <View style={styles.container}>
             <View style={styles.header}>
-                <Image style={styles.logo} source={require('../assets/Logo.png')}/>
+                <Image style={styles.logo} source={require('../assets/Logo.png')} />
             </View>
-            <Search/>
+            <Search />
             <View style={styles.content}>
                 <SafeAreaView>
                     <FlatList
@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#FC5B27',
         alignItems: 'center',
         paddingTop: 10,
-        justifyContent:'center'
+        justifyContent: 'center'
     },
     logo: {
         justifyContent: "center",

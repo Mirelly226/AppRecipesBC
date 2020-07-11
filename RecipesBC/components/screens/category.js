@@ -9,14 +9,14 @@ const Stack = createStackNavigator();
 
 function StackCategory() {
     return (
-        
-            <Stack.Navigator>
-                <Stack.Screen name="Category" component={Category} />
-                <Stack.Screen name="Recetas" component={Recipes} />
-                <Stack.Screen name="Descripcion Receta" component={Description} />
-                <Stack.Screen name="Reseñas" component={Description} />
-            </Stack.Navigator>
-        
+
+        <Stack.Navigator>
+            <Stack.Screen name="Categorías" component={Category} />
+            <Stack.Screen name="Recetas" component={Recipes} />
+            <Stack.Screen name="Descripción Receta" component={Description} />
+            <Stack.Screen name="Reseñas" component={Description} />
+        </Stack.Navigator>
+
     );
 }
 
