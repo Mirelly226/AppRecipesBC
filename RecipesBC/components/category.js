@@ -1,7 +1,6 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, SafeAreaView, FlatList, ImageBackground, Image } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, SafeAreaView, FlatList, ImageBackground, Image, Button } from 'react-native';
 import Search from './searchbar';
-
 
 
 const DataCategories = [
@@ -18,16 +17,18 @@ const DataCategories = [
         list: "Lista de recetas"
     }
 ]
-function Item(props) {
+function Item (props){
     return (
-        <TouchableOpacity onPress={()=>props.navigation.navigate('Screen1')} style={styles.item}>
+        
+        <TouchableOpacity onPress={() => props.navigation.navigate('Recetas')} style={styles.item}>
             <ImageBackground style={styles.image} source={{ uri: props.item.photo }}/>
             <Text style={styles.title} >{props.item.title}</Text>
         </TouchableOpacity>
     )
-}
+}   
 
-export default function Category(props) {
+
+export default function Category({navigation}) {
     return (
         <View style={styles.container}>
             <View style={styles.header}>
@@ -38,7 +39,7 @@ export default function Category(props) {
                 <SafeAreaView>
                     <FlatList
                         data={DataCategories}
-                        renderItem={({ item }) => <Item item={item} />}
+                        renderItem={({ item }) => <Item item={item} navigation={navigation} />}
                         keyExtractor={item => item.id}
                     />
                 </SafeAreaView>
@@ -87,17 +88,3 @@ const styles = StyleSheet.create({
     }
 })
 
-
-/* const Stack = createStackNavigator();
-
-function App() {
-    return (
-        <NavigationContainer>
-            <Stack.Navigator>
-                <Stack.Screen name="Categorías" component={Category} />
-                <Stack.Screen name="sub_category" component={sub_category} />
-            </Stack.Navigator>
-        </NavigationContainer>
-    );
-}  */
- 

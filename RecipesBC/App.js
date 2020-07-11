@@ -1,12 +1,9 @@
 import React from 'react';
-import HomeScreen from './components/index';
-import HomeCategory from './components/stack/index'
+import Home from './components/index';
 
 export default function App() {
   return (
-    <HomeScreen />
-    //<HomeCategory /> 
-
+    <Home />
     
   );
 }

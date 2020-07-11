@@ -1,5 +1,6 @@
 import React from 'react'
 import { View, Text, TouchableOpacity, StyleSheet, SafeAreaView, FlatList, ImageBackground, Image } from 'react-native';
+import { IconButton, Colors } from 'react-native-paper';
 import Search from './searchbar';
 
 
@@ -68,18 +69,19 @@ const DataRecipes = [
 
 function Item(props) {
     return (
-        <TouchableOpacity style={styles.item}>
+        <TouchableOpacity onPress={() => props.navigation.navigate('Descripcion Receta')} style={styles.item}>
             <Text style={styles.title} >{props.item.title}</Text>
             <ImageBackground style={styles.image} source={{ uri: props.item.photo }}>
             <View style={{flex: 6}}></View>
             <View style={{flex: 3, alignItems: 'flex-end', padding: 5}}>
-                
+                <IconButton icon="comment" color={Colors.white} size={35} style={styles.review}
+                onPress={() => props.navigation.navigate('Reseñas')}/>
             </View> 
-            </ImageBackground>              
+            </ImageBackground>                
         </TouchableOpacity>
     )
 }
-export default function CategoryScreen(props) {
+export default function HomeScreen({navigation}) {
     return (
         <View style={styles.container}>
             <View style={styles.header}>
@@ -90,7 +92,7 @@ export default function CategoryScreen(props) {
                 <SafeAreaView>
                     <FlatList
                         data={DataRecipes}
-                        renderItem={({ item }) => <Item item={item} />}
+                        renderItem={({ item }) => <Item item={item}  navigation={navigation} />}
                         keyExtractor={item => item.id}
                     />
                 </SafeAreaView>
