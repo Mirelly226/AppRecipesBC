@@ -1,8 +1,9 @@
 import React from 'react';
-import HomeScreen from './components/index';
+import Home from './components/index';
 
 export default function App() {
   return (
-    <HomeScreen/>
+    <Home />
+    
   );
 }
