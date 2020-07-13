@@ -12,29 +12,29 @@ export default function Review() {
                             source={require('../../assets/usuario.jpg')}
                             resizeMode='contain'
                         />
-            <Text style={styles.jhon}>Jhon</Text>
+            <Text style={styles.user}>Jhon</Text>
             <textarea name="comentarios" rows="4" cols="20">Escribe aquí tus comentarios</textarea>
             <Image
-                            style={styles.image1}
+                            style={styles.image}
                             source={require('../../assets/usuario1.jpg')}
                             resizeMode='contain'
                         />
-            <Text style={styles.pablo}>Pablo</Text>
-            <textarea name="comentarios" rows="4" cols="20">Escribe aquí tus comentarios</textarea>
+            <Text style={styles.user}>Pablo</Text>
+            <Text  style={styles.comentario}>muy facil</Text >
             <Image
-                            style={styles.image2}
+                            style={styles.image}
                             source={require('../../assets/usuario.jpg')}
                             resizeMode='contain'
                         />
-            <Text style={styles.julio}>Julio</Text>
-            <textarea name="comentarios" rows="4" cols="20">Escribe aquí tus comentarios</textarea>
+            <Text style={styles.user}>Julio</Text>
+            <Text  style={styles.comentario}>Falta explicacion</Text >
             <Image
-                            style={styles.image3}
+                            style={styles.image}
                             source={require('../../assets/usuario1.jpg')}
                             resizeMode='contain'
                         />
-            <Text style={styles.maria}>María</Text>
-            <textarea name="comentarios" rows="4" cols="20">Escribe aquí tus comentarios</textarea>
+            <Text style={styles.user}>María</Text>
+            <Text  style={styles.comentario}>no se entiende</Text >
 
 
 
@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
         flex: 1,
         padding: 20
     },
-    jhon: {
+    user: {
         flex:1,
         fontSize:23,
         fontWeight: "bold",
@@ -57,38 +57,12 @@ const styles = StyleSheet.create({
          width: 50,
          height: 50, 
          borderRadius: 360,
-         
-
+    
     },
-    pablo: {
+    comentario: {
         flex:1,
         fontSize:23,
-        fontWeight: "bold",
-    },
-    image1: {
-         width: 50,
-         height: 50, 
-         borderRadius: 360, 
-    },
-    julio: {
-        flex:1,
-        fontSize:23,
-        fontWeight: "bold",
-    },
-    image2: {
-         width: 50,
-         height: 50, 
-         borderRadius: 360, 
-    },
-    maria: {
-        flex:1,
-        fontSize:23,
-        fontWeight: "bold",
-    },
-    image3: {
-         width: 50,
-         height: 50, 
-         borderRadius: 360, 
     }
+
 
 })

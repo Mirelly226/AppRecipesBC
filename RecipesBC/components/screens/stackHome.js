@@ -3,6 +3,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import HomeScreen from '../home';
 import Description from './description'
 import { Image } from 'react-native';
+import Review from './review';
 
  const Stack = createStackNavigator();
  export default function StackHome() {
@@ -28,7 +29,7 @@ import { Image } from 'react-native';
                     headerStyle: { backgroundColor: '#FC5B27' },
                 }}
             />
-            <Stack.Screen name="Reseñas" component={Description}
+            <Stack.Screen name="Reseñas" component={Review}
                 options={{
                     headerTintColor: 'white',
                     headerStyle: { backgroundColor: '#FC5B27' },
