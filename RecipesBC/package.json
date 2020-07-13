@@ -9,11 +9,7 @@
   },
   "dependencies": {
     "@react-native-community/masked-view": "0.1.10",
-<<<<<<< HEAD
-    "@react-navigation/bottom-tabs": "^5.7.0",
-=======
     "@react-navigation/bottom-tabs": "^5.6.1",
->>>>>>> bryan
     "@react-navigation/native": "^5.6.1",
     "@react-navigation/stack": "^5.6.2",
     "expo": "~38.0.1",
