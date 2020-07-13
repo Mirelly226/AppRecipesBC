@@ -35,7 +35,6 @@ function Item(props) {
             <Text style={styles.description}>{props.item.n}</Text>
         </View>
     )
-
 }
 
 
