@@ -1,11 +1,10 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
-import { FontAwesome, Ionicons } from '@expo/vector-icons';
-import Account from './account';
-import StackHome from './screens/index';
-import StackCategory from './screens/category';
-
+import { FontAwesome } from '@expo/vector-icons';
+import StackAccount from './screens/stackAccount';
+import StackHome from './screens/stackHome';
+import StackCategory from './screens/stackCategory';
 
 const Tab = createBottomTabNavigator();
 
@@ -13,6 +12,7 @@ export default function Home() {
     return (
         <NavigationContainer>
             <Tab.Navigator
+                initialRouteName="Inicio"
                 screenOptions={({ route }) => ({
                     tabBarIcon: ({ focused, color, size }) => {
                         let iconName;
@@ -30,17 +30,18 @@ export default function Home() {
                     },
                 })}
                 tabBarOptions={{
-                    activeTintColor: 'tomato',
+                    activeTintColor: '#FC5B27',
                     inactiveTintColor: 'gray',
                 }}
             >
-                <Tab.Screen name="Inicio" component={StackHome} />
+                <Tab.Screen name="Inicio" component={StackHome}/>
                 <Tab.Screen name="Categorías" component={StackCategory} />
-                <Tab.Screen name="Cuenta" component={Account} />
+                <Tab.Screen name="Cuenta" component={StackAccount} />
             </Tab.Navigator>
         </NavigationContainer>
     );
-}
+} 
+
 
 
 

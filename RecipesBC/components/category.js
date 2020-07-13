@@ -20,7 +20,7 @@ const DataCategories = [
 function Item(props) {
     return (
 
-        <TouchableOpacity onPress={() => props.navigation.navigate('Recetas')} style={styles.item}>
+        <TouchableOpacity onPress={() => props.navigation.navigate('Recetas por Categoría')} style={styles.item}>
             <ImageBackground style={styles.image} source={{ uri: props.item.photo }} />
             <Text style={styles.title} >{props.item.title}</Text>
         </TouchableOpacity>
@@ -31,9 +31,6 @@ function Item(props) {
 export default function Category({ navigation }) {
     return (
         <View style={styles.container}>
-            <View style={styles.header}>
-                <Image style={styles.logo} source={require('../assets/Logo.png')} />
-            </View>
             <Search />
             <View style={styles.content}>
                 <SafeAreaView>
@@ -52,20 +49,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1
     },
-    header: {
-        flex: 1,
-        backgroundColor: '#FC5B27',
-        alignItems: 'center',
-        paddingTop: 10,
-        justifyContent: 'center'
-    },
-    logo: {
-        justifyContent: "center",
-        width: '50%',
-        height: '100%'
-    },
     content: {
-        flex: 7,
         padding: 20
     },
     item: {
@@ -77,7 +61,8 @@ const styles = StyleSheet.create({
         fontSize: 30,
         fontWeight: 'bold',
         textAlign: 'center',
-        position: 'absolute'
+        position: 'absolute',
+        color: '#FC5B27'
     },
     image: {
         justifyContent: "center",

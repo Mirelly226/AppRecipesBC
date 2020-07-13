@@ -84,9 +84,6 @@ function Item(props) {
 export default function Recipes({ navigation }) {
     return (
         <View style={styles.container}>
-            <View style={styles.header}>
-                <Image style={styles.logo} source={require('../../assets/Logo.png')} />
-            </View>
             <Search />
             <View style={styles.content}>
                 <SafeAreaView>
@@ -105,20 +102,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1
     },
-    header: {
-        flex: 1,
-        backgroundColor: '#FC5B27',
-        alignItems: 'center',
-        paddingTop: 10,
-        justifyContent: 'center'
-    },
-    logo: {
-        justifyContent: "center",
-        width: '50%',
-        height: '100%'
-    },
     content: {
-        flex: 35,
         padding: 20
     },
     item: {

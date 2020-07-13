@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, TouchableOpacity, StyleSheet, SafeAreaView, FlatList, ImageBackground, Image } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, SafeAreaView, FlatList, ImageBackground } from 'react-native';
 import { IconButton, Colors } from 'react-native-paper';
 import Search from './searchbar';
 
@@ -84,9 +84,6 @@ function Item(props) {
 export default function HomeScreen({ navigation }) {
     return (
         <View style={styles.container}>
-            <View style={styles.header}>
-                <Image style={styles.logo} source={require('../assets/Logo.png')} />
-            </View>
             <Search />
             <View style={styles.content}>
                 <SafeAreaView>
@@ -103,22 +100,10 @@ export default function HomeScreen({ navigation }) {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1
-    },
-    header: {
         flex: 1,
-        backgroundColor: '#FC5B27',
-        alignItems: 'center',
-        paddingTop: 10,
-        justifyContent: 'center'
-    },
-    logo: {
-        justifyContent: "center",
-        width: '50%',
-        height: '100%'
+        
     },
     content: {
-        flex: 7,
         padding: 20
     },
     item: {
