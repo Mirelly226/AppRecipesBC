@@ -1,45 +1,39 @@
 import React from 'react';
-import { View, Text, StyleSheet, IconButton } from 'react-native';
-import {  Image } from 'react-native';
+import { View, Text, StyleSheet, Image } from 'react-native';
 
 
 export default function Review() {
     return (
         <View style={styles.container}>
-            <View style={styles.content}>
-            <Image
-                            style={styles.image}
-                            source={require('../../assets/usuario.jpg')}
-                            resizeMode='contain'
-                        />
-            <Text style={styles.user}>Jhon</Text>
-            <textarea name="comentarios" rows="4" cols="20" placeholder="Escribe aquí tus comentarios"></textarea>
-            <Image
-                            style={styles.image}
-                            source={require('../../assets/usuario1.jpg')}
-                            resizeMode='contain'
-                        />
-            <Text style={styles.user}>Pablo</Text>
-            <Text  style={styles.comentario}>muy facil</Text >
-            <Image
-                            style={styles.image}
-                            source={require('../../assets/usuario.jpg')}
-                            resizeMode='contain'
-                        />
-            <Text style={styles.user}>Julio</Text>
-            <Text  style={styles.comentario}>Falta explicacion</Text >
-            <Image
-                            style={styles.image}
-                            source={require('../../assets/usuario1.jpg')}
-                            resizeMode='contain'
-                        />
-            <Text style={styles.user}>María</Text>
-            <Text  style={styles.comentario}>no se entiende</Text >
-            <IconButton icon="comment" color={Colors.white} size={35} style={styles.review}
-                            onPress={() => navigation.navigate('Reseñas')} /> 
-
-
-
+            <View>
+                <Image
+                    style={styles.image}
+                    source={require('../../assets/usuario.jpg')}
+                    resizeMode='contain'
+                />
+                <Text style={styles.user}>Jhon</Text>
+                <textarea name="comentarios" rows="4" cols="20" placeholder="Escribe aquí tus comentarios" ></textarea>
+                <Image
+                    style={styles.image}
+                    source={require('../../assets/usuario1.jpg')}
+                    resizeMode='contain'
+                />
+                <Text style={styles.user}>Pablo</Text>
+                <Text style={styles.comentario}>muy facil</Text >
+                <Image
+                    style={styles.image}
+                    source={require('../../assets/usuario.jpg')}
+                    resizeMode='contain'
+                />
+                <Text style={styles.user}>Julio</Text>
+                <Text style={styles.comentario}>Falta explicacion</Text >
+                <Image
+                    style={styles.image}
+                    source={require('../../assets/usuario1.jpg')}
+                    resizeMode='contain'
+                />
+                <Text style={styles.user}>María</Text>
+                <Text style={styles.comentario}>no se entiende</Text >
             </View>
         </View>
     );
@@ -50,20 +44,20 @@ const styles = StyleSheet.create({
         padding: 20
     },
     user: {
-        flex:1,
-        fontSize:23,
+        flex: 1,
+        fontSize: 23,
         fontWeight: "bold",
-        
+
     },
     image: {
-         width: 50,
-         height: 50, 
-         borderRadius: 360,
-    
+        width: 50,
+        height: 50,
+        borderRadius: 360,
+
     },
     comentario: {
-        flex:1,
-        fontSize:23,
+        flex: 1,
+        fontSize: 23,
     }
 
 
