@@ -79,8 +79,6 @@ const styles = StyleSheet.create({
         marginLeft: 15,
         justifyContent: 'flex-start',
         paddingBottom: 15
-
-
     },
     ContentImage: {
         flex: 3.7,
