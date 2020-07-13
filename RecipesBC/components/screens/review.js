@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, IconButton } from 'react-native';
 import {  Image } from 'react-native';
 
 
@@ -13,7 +13,7 @@ export default function Review() {
                             resizeMode='contain'
                         />
             <Text style={styles.user}>Jhon</Text>
-            <textarea name="comentarios" rows="4" cols="20">Escribe aquí tus comentarios</textarea>
+            <textarea name="comentarios" rows="4" cols="20" placeholder="Escribe aquí tus comentarios"></textarea>
             <Image
                             style={styles.image}
                             source={require('../../assets/usuario1.jpg')}
@@ -35,6 +35,8 @@ export default function Review() {
                         />
             <Text style={styles.user}>María</Text>
             <Text  style={styles.comentario}>no se entiende</Text >
+            <IconButton icon="comment" color={Colors.white} size={35} style={styles.review}
+                            onPress={() => navigation.navigate('Reseñas')} /> 
 
 
 

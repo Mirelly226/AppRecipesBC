@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
         width: 300, 
         height: 300, 
         borderRadius: 160,
-        textAlign: "ceter"
+        textAlign: "center"
 
     }
 
