@@ -7,3 +7,4 @@ Se requiere instalar:
 "@react-navigation/bottom-tabs": "^5.6.1",
 "@react-navigation/native": "^5.6.1",
 "@react-navigation/stack": "^5.6.2",
+ "expo-splash-screen": "~0.3.1"
