@@ -1,7 +1,7 @@
 # AppRecipesBC
-Se requiere instalar:
+Iniciar expo en AppRecipesBC/RecipesBC
 
-iniciar expo en AppRecipesBC/RecipesBC
+Se requiere instalar:
 
 "react-native-paper": "^3.10.1"
 "@react-navigation/bottom-tabs": "^5.6.1",
