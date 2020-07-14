@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, StyleSheet, SafeAreaView, FlatList, ImageBackground, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, FlatList, ImageBackground, ScrollView} from 'react-native';
 import { IconButton, Colors } from 'react-native-paper';
 
 
@@ -51,18 +51,15 @@ export default function Description({ navigation }) {
                 </ImageBackground>
             </View>
             <View style={styles.content}>
-                <ScrollView>
-                    <Text style={styles.title}>Ingredientes:</Text>
-                    <SafeAreaView>
+                    <Text style={styles.title}>Ingredientes:</Text>            
                         <FlatList
+                            disableVirtualization
                             data={Ingredientes}
                             renderItem={({ item }) => <Item item={item} />}
                             keyExtractor={item => item.id}
                         />
-                    </SafeAreaView>
                     <Text style={styles.title}>Preparación:</Text>
                     <Text style={styles.descriptionPre}>Dejámos reposar el agua al menos 5 horas sin moverla, hasta que todo el almidón de haya depositado en el fondo. Cuando el almidón se haya depositado en el fondo, retiramos el agua con un cazo de servir. Deja secar el almidón al menos 8 horas.</Text>
-                </ScrollView>
             </View>
         </View>
     );
@@ -113,7 +110,7 @@ const styles = StyleSheet.create({
     image: {
         justifyContent: "center",
         width: '100%',
-        height: 200
+        height: '95%'
     },
     review: {
         backgroundColor: '#FC5B27'
