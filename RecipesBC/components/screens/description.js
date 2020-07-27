@@ -2,7 +2,6 @@ import React from 'react'
 import { View, Text, StyleSheet, FlatList, ImageBackground, ScrollView } from 'react-native';
 import { IconButton, Colors } from 'react-native-paper';
 
-
 const photo = { uri: 'https://www.cocina-ecuatoriana.com/base/stock/Recipe/3-image/3-image_web.jpg' };
 
 const Ingredientes = [
