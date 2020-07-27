@@ -1,10 +1,8 @@
 import React from 'react';
-import Home from './components/index';
-import Review from './components/screens/review';
+import App from './components/index'
 
-export default function App() {
+export default function Hook() {
   return (
-    <Home  />
-    //<Review  />
+    <App/>
   );
 }
