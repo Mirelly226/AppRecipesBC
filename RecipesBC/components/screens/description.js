@@ -37,6 +37,20 @@ function Item(props) {
     )
 }
 
+function HeaderComponent() {
+    return (
+        <Text style={styles.title}>Ingredientes:</Text>
+    )
+}
+
+function FooterComponent() {
+    return (
+        <>
+            <Text style={styles.title}>Preparación:</Text>
+            <Text style={styles.descriptionPre}>Dejámos reposar el agua al menos 5 horas sin moverla, hasta que todo el almidón de haya depositado en el fondo. Cuando el almidón se haya depositado en el fondo, retiramos el agua con un cazo de servir. Deja secar el almidón al menos 8 horas.</Text>
+        </>
+    )
+}
 
 export default function Description({ navigation }) {
     return (
@@ -51,18 +65,23 @@ export default function Description({ navigation }) {
                 </ImageBackground>
             </View>
             <View style={styles.content}>
-                <ScrollView>
-                    <Text style={styles.title}>Ingredientes:</Text>
-                    <FlatList
-                        disableVirtualization
-                        data={Ingredientes}
-                        renderItem={({ item }) => <Item item={item} />}
-                        keyExtractor={item => item.id}
-                    />
-                    <Text style={styles.title}>Preparación:</Text>
-                    <Text style={styles.descriptionPre}>Dejámos reposar el agua al menos 5 horas sin moverla, hasta que todo el almidón de haya depositado en el fondo. Cuando el almidón se haya depositado en el fondo, retiramos el agua con un cazo de servir. Deja secar el almidón al menos 8 horas.</Text>
-                </ScrollView>
+                <FlatList
+                    ListHeaderComponent={
+                        <HeaderComponent />
+                    }
+                    ListFooterComponent={
+                        <FooterComponent />
+                    }
+
+                    disableVirtualization
+                    data={Ingredientes}
+                    renderItem={({ item }) => <Item item={item} />}
+                    keyExtractor={item => item.id}
+
+                />
             </View>
+
+
         </View>
     );
 }
@@ -112,7 +131,7 @@ const styles = StyleSheet.create({
     image: {
         justifyContent: "center",
         width: '100%',
-        height: '95%'
+        height: '96.5%'
     },
     review: {
         backgroundColor: '#FC5B27'
