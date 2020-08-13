@@ -4,13 +4,14 @@ import { FontAwesome } from '@expo/vector-icons';
 import StackAccount from './screens/stackAccount';
 import StackHome from './screens/stackHome';
 import StackCategory from './screens/stackCategory';
+import { NavigationContainer } from '@react-navigation/native';
 
 
 const Tab = createBottomTabNavigator();
 
 export default function Home() {
     return (
-       
+       <NavigationContainer>
             <Tab.Navigator
                 initialRouteName="Inicio"
                 screenOptions={({ route }) => ({
@@ -38,6 +39,6 @@ export default function Home() {
                 <Tab.Screen name="Categorías" component={StackCategory} />
                 <Tab.Screen name="Cuenta" component={StackAccount} />
             </Tab.Navigator>
-       
+        </NavigationContainer>
     );
 } 

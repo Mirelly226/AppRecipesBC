@@ -1,7 +1,6 @@
-import React, { useState, useMemo } from 'react';
+/* import React, { useState, useMemo } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import AuthContext from "./login/context";
 import Home from './tabs';
 import Login from './login/stackLogin';
 
@@ -46,5 +45,5 @@ function App() {
 
 export default App;
 
-
+ */
 

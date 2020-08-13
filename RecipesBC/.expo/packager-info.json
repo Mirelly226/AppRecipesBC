@@ -1,10 +1,10 @@
 {
-  "devToolsPort": 19002,
-  "expoServerPort": null,
-  "packagerPort": null,
-  "packagerPid": null,
-  "expoServerNgrokUrl": null,
-  "packagerNgrokUrl": null,
-  "ngrokPid": null,
-  "webpackServerPort": null
+  "webpackServerPort": 19006,
+  "expoServerPort": 19000,
+  "packagerPort": 19001,
+  "packagerPid": 6852,
+  "expoServerNgrokUrl": "https://t3-798.anonymous.recipesbc.exp.direct",
+  "packagerNgrokUrl": "https://packager.t3-798.anonymous.recipesbc.exp.direct",
+  "ngrokPid": 15028,
+  "devToolsPort": 19002
 }

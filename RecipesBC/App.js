@@ -1,8 +1,16 @@
 import React from 'react';
-import App from './components/index'
+import { createAppContainer,createSwitchNavigator} from 'react-navigation';
+import LoginScreen from './components/login/login';
+import Home from './components/tabs';
 
-export default function Hook() {
-  return (
-    <App/>
-  );
-}
+
+
+const appNavigator = createSwitchNavigator({
+  Login:{screen:LoginScreen},
+  Inicio:{screen:Home}
+},{
+  initialRouteName:'Login'
+})
+
+export default createAppContainer (appNavigator);
+
