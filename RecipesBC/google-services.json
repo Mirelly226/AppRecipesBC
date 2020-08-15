@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "478142154644",
+    "firebase_url": "https://recetas-app-31a18.firebaseio.com",
+    "project_id": "recetas-app-31a18",
+    "storage_bucket": "recetas-app-31a18.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:478142154644:android:1f5ac75abb909e1cd67181",
+        "android_client_info": {
+          "package_name": "recipes.Android2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "478142154644-camqhe6kg3cksukbcm3jmffrncivitjr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDLySnTuroFlKnJfw_DRtPlG_yjiaLIp48"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "478142154644-camqhe6kg3cksukbcm3jmffrncivitjr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
