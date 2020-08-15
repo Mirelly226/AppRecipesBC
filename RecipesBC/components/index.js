@@ -1,50 +1,49 @@
-import React from 'react';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+/* import React, { useState, useMemo } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { FontAwesome } from '@expo/vector-icons';
-import StackAccount from './screens/stackAccount';
-import StackHome from './screens/stackHome';
-import StackCategory from './screens/stackCategory';
+import { createStackNavigator } from '@react-navigation/stack';
+import Home from './tabs';
+import Login from './login/stackLogin';
 
-const Tab = createBottomTabNavigator();
 
-export default function Home() {
+
+const RootStack = createStackNavigator();
+function RootStackScreen({ user }) {
     return (
-        <NavigationContainer>
-            <Tab.Navigator
-                initialRouteName="Inicio"
-                screenOptions={({ route }) => ({
-                    tabBarIcon: ({ focused, color, size }) => {
-                        let iconName;
+        <RootStack.Navigator headerMode="none">
+            {user === null ? (
 
-                        if (route.name === 'Inicio') {
-                            iconName = focused
-                                ? 'home'
-                                : 'home';
-                        } else if (route.name === 'Categorías') {
-                            iconName = focused ? 'list-ul' : 'list-ul';
-                        } else if (route.name === 'Cuenta') {
-                            iconName = focused ? 'user' : 'user';
-                        }
-                        return <FontAwesome name={iconName} size={size} color={color} />;
-                    },
-                })}
-                tabBarOptions={{
-                    activeTintColor: '#FC5B27',
-                    inactiveTintColor: 'gray',
-                }}
-            >
-                <Tab.Screen name="Inicio" component={StackHome}/>
-                <Tab.Screen name="Categorías" component={StackCategory} />
-                <Tab.Screen name="Cuenta" component={StackAccount} />
-            </Tab.Navigator>
-        </NavigationContainer>
+                <RootStack.Screen name="App" component={Login} headerMode="none" />
+            ) : (
+
+                    <RootStack.Screen name="Auth" component={Home} />
+                )
+            }
+        </RootStack.Navigator>
+    )
+}
+
+function App() {
+
+    const [user, setUser] = useState(null);
+    const authContext = useMemo(() => {
+        return {
+            login: () => {
+                setUser("1");
+            }
+        }
+    })
+    return (
+        <AuthContext.Provider value={authContext}>
+            <NavigationContainer>
+                <RootStackScreen user={user} />
+            </NavigationContainer>
+        </AuthContext.Provider>
+
     );
-} 
+}
 
 
+export default App;
 
-
-
-
+ */
 

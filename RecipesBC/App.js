@@ -1,10 +1,16 @@
 import React from 'react';
-import Home from './components/index';
-import Review from './components/screens/review';
+import { createAppContainer,createSwitchNavigator} from 'react-navigation';
+import LoginScreen from './components/login/login';
+import Home from './components/tabs';
 
-export default function App() {
-  return (
-    <Home  />
-    //<Review  />
-  );
-}
+
+
+const appNavigator = createSwitchNavigator({
+  Login:{screen:LoginScreen},
+  Inicio:{screen:Home}
+},{
+  initialRouteName:'Login'
+})
+
+export default createAppContainer (appNavigator);
+
