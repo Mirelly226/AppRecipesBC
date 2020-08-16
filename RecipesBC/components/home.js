@@ -3,7 +3,6 @@ import { View, Text, TouchableOpacity, StyleSheet, SafeAreaView, FlatList, Image
 import { IconButton, Colors } from 'react-native-paper';
 import Search from './searchbar';
 
-
 const DataRecipes = [
     {
         id: "1",
