@@ -2,8 +2,7 @@ import React, { Component, useEffect, useState } from 'react';
 import { StyleSheet, Text, View, Alert } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { Input, CheckBox, Button } from 'react-native-elements';
-import { TouchableOpacity, ScrollView } from 'react-native-gesture-handler';
-import { ListItem } from 'react-native-elements'
+import { TouchableOpacity} from 'react-native-gesture-handler';
 import firebase from "../firebase/firebase";
 import "firebase/firestore"
 
@@ -12,7 +11,7 @@ export default function LoginScreen({navigation}) {
     const [password, setPassword] = useState('')
     const [correo, setCorreo] = useState('')
     const [check, setCheck] = useState(false)
-    const [one, setOne] = useState();
+    const [setOne] = useState();
     
     const oneDocument = () => {
 
