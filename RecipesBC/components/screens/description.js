@@ -1,100 +1,120 @@
-import React, {useState} from 'react'
-import { View, Text, StyleSheet, FlatList, ImageBackground } from 'react-native';
+import React, { useState, useEffect } from 'react'
+import { View, Text, StyleSheet, FlatList, ImageBackground, ActivityIndicator } from 'react-native';
 import { IconButton, Colors } from 'react-native-paper';
-import firebase from "../firebase/firebase";
+import firebase from "../lib/firebase";
 import "firebase/firestore"
+import { useRoute } from '@react-navigation/native';
+let photo = { uri: 'https://www.cocina-ecuatoriana.com/base/stock/Recipe/3-image/3-image_web.jpg' };
+let Ingredientes = [
 
-const photo = { uri: 'https://www.cocina-ecuatoriana.com/base/stock/Recipe/3-image/3-image_web.jpg' };
-const Ingredientes = [
-    {
-        id: '1',
-        n: '2 ½ tazas de almidón de yuca'
-    },
-    {
-        id: '2',
-        n: '4 tazas de queso rallado'
-    },
-    {
-        id: '3',
-        n: '1 cucharadita de polvo de hornear'
-    },
-    {
-        id: '4',
-        n: 'Una pizca de sal'
-    },
-    {
-        id: '5',
-        n: '4 onzas de mantequilla'
-    },
+    '2 ½ tazas de almidón de yuca',
+
+    '4 tazas de queso rallado',
+
+    '1 cucharadita de polvo de hornear',
+
+    'Una pizca de sal',
+
+    '4 onzas de mantequilla'
 ]
+let description = '';
+let receta = new Object();
+receta.ingredientes = Ingredientes;
+receta.preparacion = description;
 
 export default function Description({ navigation }) {
     const db = firebase.firestore();
-  
-//leer Documentos
+    const [one, setOne] = useState();
+    const [isLoading, setLoading] = useState(true);
+    let route = useRoute();
+    let titulo = route.params.titulo;
+    console.log('' + titulo)
+    //leer Documentos
+    const oneDocument = () => {
+        db.collection('recetas').where('titulo', '==', titulo).get()
+            .then((snapshot) => {
+                snapshot.forEach((doc) => {
+                    setOne(doc.data())
+                })
 
-    db.collection('recetas').get()
-  .then((snapshot) => {
-    snapshot.forEach((doc) => {   
-      console.log(doc.id, '=>', doc.data());
-    });
-  })
-  .catch((err) => {
-    console.log('Error getting documents', err);
-  }); 
-  
-function Item(props) {
-    return (
-        <View style={styles.ItemCont}>
-            <View style={{ width: 10, height: 10, borderRadius: 5, backgroundColor: '#FC5B27', marginRight:5}} />
-    <Text style={styles.descrition}>{props.item.n}</Text>
-        </View>
-    )
-}
+            })
+            .catch((err) => {
+                console.log('Error getting documents', err);
+            }).finally(() => {
+                setLoading(false)
+            });
+    }
+    if (one != undefined) {
+        Ingredientes = one.ingredientes;
+        description = one.preparacion
+        photo = one.img
+    }
+    useEffect(() => {
+        let isMounted = true;
 
-function HeaderComponent() {
-    return (
-        <Text style={styles.title}>Ingredientes:</Text>
-    )
-}
+        oneDocument();
 
-function FooterComponent() {
-    return (
-        <>
-            <Text style={styles.title}>Preparación:</Text>
-            <Text style={styles.descriptionPre}>Dejámos reposar el agua al menos 5 horas sin moverla, hasta que todo el almidón de haya depositado en el fondo. Cuando el almidón se haya depositado en el fondo, retiramos el agua con un cazo de servir. Deja secar el almidón al menos 8 horas.</Text>
-        </>
-    )
-} 
+        return () => { isMounted = false };
+    }, [])
+
+    function Item(props) {
+        return (
+            <View style={styles.ItemCont}>
+                <View style={{ width: 10, height: 10, borderRadius: 5, backgroundColor: '#FC5B27', marginRight: 5 }} />
+                <Text style={styles.descrition}>{props.item}</Text>
+            </View>
+        )
+    }
+
+    function HeaderComponent() {
+        return (
+            <Text style={styles.title}>Ingredientes:</Text>
+        )
+    }
+
+    function FooterComponent() {
+        return (
+            <>
+                <Text style={styles.title}>Preparación:</Text>
+                <Text style={styles.descriptionPre}>{description}</Text>
+            </>
+        )
+    }
 
     return (
+
         <View style={styles.container}>
-            <View style={styles.ContentImage}>
-                <ImageBackground style={styles.image} source={photo}>
-                    <View style={{ flex: 6 }}></View>
-                    <View style={{ flex: 3, alignItems: 'flex-end', padding: 5 }}>
-                        <IconButton icon="comment" color={Colors.white} size={35} style={styles.review}
-                            onPress={() => navigation.navigate('Reseñas')} />
-                    </View>
-                </ImageBackground>
-            </View>
-            <View style={styles.content}>
-                <FlatList
-                    ListHeaderComponent={
-                        <HeaderComponent />
-                    }
-                    ListFooterComponent={
-                        <FooterComponent />
-                    }
+            {isLoading ? (<ActivityIndicator />)
+                : (
+                    <>
+                        <View style={styles.ContentImage}>
+                            <ImageBackground style={styles.image} source={photo}>
+                                <View style={{ flex: 6 }}></View>
+                                <View style={{ flex: 3, alignItems: 'flex-end', padding: 5 }}>
+                                    <IconButton icon="comment" color={Colors.white} size={35} style={styles.review}
+                                        onPress={() => navigation.navigate('Reseñas')} />
+                                </View>
+                            </ImageBackground>
+                        </View>
+                        <View style={styles.content}>
+                            <FlatList
+                                ListHeaderComponent={
+                                    <HeaderComponent />
+                                }
+                                ListFooterComponent={
+                                    <FooterComponent />
+                                }
 
-                    disableVirtualization
-                    data={Ingredientes}
-                    renderItem={({ item }) => <Item item={item} />}
-                    keyExtractor={item => item.id}
+                                disableVirtualization
+                                data={Ingredientes}
+                                renderItem={({ item }) => <Item item={item} />}
 
-                />
-            </View>
 
+                            />
+                        </View>
+                    </>
+                )
+            }
 
         </View>
     );

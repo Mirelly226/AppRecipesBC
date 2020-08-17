@@ -9,7 +9,7 @@ const appNavigator = createSwitchNavigator({
   Login:{screen:LoginScreen},
   Inicio:{screen:Home}
 },{
-  initialRouteName:'Inicio'
+  initialRouteName:'Login'
 })
 
 export default createAppContainer (appNavigator);
