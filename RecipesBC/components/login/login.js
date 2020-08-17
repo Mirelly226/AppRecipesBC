@@ -4,7 +4,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import { Input, CheckBox, Button } from 'react-native-elements';
 import { TouchableOpacity, ScrollView } from 'react-native-gesture-handler';
 import { ListItem } from 'react-native-elements'
-import firebase from "../firebase/firebase";
+import firebase from "../lib/firebase";
 import "firebase/firestore"
 
 export default function LoginScreen({navigation}) {
@@ -16,15 +16,15 @@ export default function LoginScreen({navigation}) {
     
     const oneDocument = () => {
 
-        firebase.firestore().collection('login').where('email', '==', correo).get()
+        firebase.firestore().collection('users').where('email', '==', correo).get()
             .then((snapshot) => {
                 if(snapshot.size==0){
-                    Alert.alert('No valido')
+                    Alert.alert('Verifique que el usuario y contraseña sean correctos')
+
                 }
                 snapshot.forEach((doc) => {
                    let item=doc.data()
                    if(item.password==password){
-                    console.log({item});
                     navigation.navigate('Inicio')
                    }else{
                     console.log("error");
@@ -35,7 +35,7 @@ export default function LoginScreen({navigation}) {
             .catch((err) => {
                 console.log('Error getting documents', err);
             });
-        firebase.firestore().collection('login').doc('1').get()
+        firebase.firestore().collection('users').doc('1').get()
             .then(snapshot => {
                 setOne(snapshot.data())
             })
@@ -47,79 +47,53 @@ export default function LoginScreen({navigation}) {
     return (
         <View style={styles.container}>
             <View style={styles.body}>
-                <View style={{ height: 20.0 }} />
+                <Text>EMAIL/USUARIO:</Text>
                 <Input
                     title='Correo Electrónico'
-                    placeholder='Correo'
+                    placeholder='Ingrese su email o usuario'
                     onChangeText={changeCorreo => setCorreo(changeCorreo)}
                     rightIcon={
                         <Icon
                             name='envelope-o'
                             size={25}
-                            color='#3B83BD'
+                            color='black'
                         />
                     }
                 />
+                <Text>CONTRASEÑA:</Text>
                 <Input
                     title='Contraseña'
-                    placeholder='Contraseña'
+                    placeholder='Ingrese su contraseña'
                     secureTextEntry={true}
                     onChangeText={changePass => setPassword(changePass)}
                     rightIcon={
                         <Icon
                             name='key'
                             size={25}
-                            color='#3B83BD'
+                            color='black'
                         />
                     }
                 />
-
-                <CheckBox
-                    center={false}
-                    title='Recuerdame'
-                    iconRight={false}
-                    onIconPress={() => {
-                        setCheck(!check);
-                    }}
-                    checked={check}
-                />
-
-                <View style={{ height: 30.0 }}>
-                </View>
                 <View style={styles.boton}>
-                    <Text style={styles.forgot}>Olvidaste tu contraseña? </Text>
-
-                    <View style={{ height: 10.0 }} />
+                    <Text style={styles.forgot}>¿Olvidaste tu contraseña? </Text>
                     <Button
-                        title="Inicia Sesión"
+                        title="Iniciar Sesión"
                         onPress={oneDocument}
                         buttonStyle={{
                             width: 200.0,
                             justifyContent: 'center',
-                            alignItems: 'center'
+                            alignItems: 'center',
+                            margin: 30,
+                            backgroundColor: '#FC5B27'
                         }}
                     />
-                    <View style={{ height: 10.0 }} />
-                    <Text >------------ OR ------------ </Text>
-                    <View style={{ height: 10.0 }} />
-                    <Button
-                        title="Inicia con Google"
-                        backgroundColor={'red'}
-                        buttonStyle={{
-                            width: 200.0,
-                            backgroundColor: "red"
-                        }}
-                    />
-                    <View style={{ height: 20.0 }} />
-                    <Text >No tienes una cuenta?</Text>
-
-                    <View style={{ height: 10.0 }} />
+                    
                     <TouchableOpacity
                         onPress={() => navigation.navigate('Registro')}
 
                     >
 
-                        <Text style={styles.forgot} >Registrate</Text>
+                        <Text style={styles.forgot} >REGISTRATE</Text>
                     </TouchableOpacity>
 
                 </View>
@@ -131,26 +105,11 @@ export default function LoginScreen({navigation}) {
     );
 }
 
-LoginScreen.navigationOptions = {
-    //poner un icono solo en drawer
-    drawerIcon: ({ tintColor }) => {
-        return <MaterialIcons name='account-circle' size={25} color={tintColor} />
-    },
-
-    //nombre pagina
-    title: 'Inicio de Sesión',
-    //edicion header individual
-    // headerStyle:{
-    //    backgroundColor:'#fe0',
-    //  },
-
-}
-
-
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#CDCDCD',
+        backgroundColor: 'white',
+        paddingTop: '10%',
     },
     text: {
         fontSize: 20,
@@ -160,24 +119,13 @@ const styles = StyleSheet.create({
     forgot: {
 
         fontSize: 17,
-        textAlign: 'center',
-        color: '#572364',
+        color: 'black',
     },
 
-    textPrimary: {
-        paddingTop: 5.0,
-        color: "white",
-        alignItems: 'center',
-        fontSize: 35,
-        textAlign: 'center',
-        fontWeight: "bold"
-    },
     body: {
-        paddingTop: 10.0,
-        marginLeft: 25.0,
-        marginRight: 25.0,
-        flex: 1,
-        alignItems: 'stretch',
+        flex: 2,
+        margin: 30,
+        padding: 10,
         alignContent: 'space-around',
         justifyContent: 'center',
         backgroundColor: 'white',

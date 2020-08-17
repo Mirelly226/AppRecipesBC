@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { View, Text, StyleSheet, Image, TextInput, Button, SafeAreaView, FlatList } from 'react-native';
 
 
@@ -36,7 +36,6 @@ const DataReview = [
 ]
 
 function Item(props) {
-
     return (
         <View style={styles.content}>
             <Image
@@ -46,7 +45,8 @@ function Item(props) {
             />
             <View style={styles.review}>
                 <Text style={styles.user}>{props.item.name}</Text>
-                <Text style={styles.comentario}>{props.item.reseña}</Text >
+                <Text style={styles.comentario} 
+                onChangeText={changePass => getReview(changePass)}>{props.item.reseña}</Text >
             </View>
         </View>
     )
@@ -123,7 +123,7 @@ const styles = StyleSheet.create({
     },
     btn: {
         flexDirection: 'row',
-        justifyContent: 'flex-end', 
+        justifyContent: 'flex-end',
     }
 
 

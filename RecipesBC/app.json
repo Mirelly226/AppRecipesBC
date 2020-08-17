@@ -27,14 +27,13 @@
       "favicon": "./assets/favicon.png",
       "config": {
         "firebase": {
-          "apiKey": "AIzaSyCz0ko0uiR6HOCEHdo-C8hoyCMrVvpwwIM",
-          "authDomain": "recetas-api.firebaseapp.com",
-          "databaseURL": "https://recetas-api.firebaseio.com",
-          "projectId": "recetas-api",
-          "storageBucket": "recetas-api.appspot.com",
-          "messagingSenderId": "621355007397",
-          "appId": "1:621355007397:web:2c346719a9fd508b4cbc4c",
-          "measurementId": "G-BNJ9Q9WNXX"
+          "apiKey": "AIzaSyChq4pdVzng4k5L99myTdpDBEms7j1ucFw",
+          "authDomain": "recetas-app-31a18.firebaseapp.com",
+          "databaseURL": "https://recetas-app-31a18.firebaseio.com",
+          "projectId": "recetas-app-31a18",
+          "storageBucket": "recetas-app-31a18.appspot.com",
+          "messagingSenderId": "478142154644",
+          "appId": "1:478142154644:web:927a18e889c4fff2d67181"
         }
       }
     }
