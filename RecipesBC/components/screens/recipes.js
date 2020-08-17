@@ -3,8 +3,7 @@ import { View, Text, TouchableOpacity, StyleSheet, SafeAreaView, FlatList, Image
 import Search from '../searchbar';
 import { IconButton, Colors } from 'react-native-paper';
 
-
-const DataRecipes = [
+ const DataRecipes = [
     {
         id: "1",
         title: "Pan de Yuca",
@@ -65,7 +64,11 @@ const DataRecipes = [
         photo: "https://cdn.kiwilimon.com/recetaimagen/15126/th5-320x320-7347.jpg",
         review: "Comentarios de la receta"
     }
-]
+] 
+
+
+
+
 
 function Item(props) {
     return (
@@ -82,6 +85,7 @@ function Item(props) {
     )
 }
 export default function Recipes({ navigation }) {
+
     return (
         <View style={styles.container}>
             <Search />

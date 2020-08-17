@@ -15,7 +15,7 @@ export default function LoginScreen({navigation}) {
     
     const oneDocument = () => {
 
-        firebase.firestore().collection('login').where('email', '==', correo).get()
+        firebase.firestore().collection('users').where('email', '==', correo).get()
             .then((snapshot) => {
                 if(snapshot.size==0){
                     Alert.alert('No valido')
@@ -34,7 +34,7 @@ export default function LoginScreen({navigation}) {
             .catch((err) => {
                 console.log('Error getting documents', err);
             });
-        firebase.firestore().collection('login').doc('1').get()
+        firebase.firestore().collection('users').doc('1').get()
             .then(snapshot => {
                 setOne(snapshot.data())
             })

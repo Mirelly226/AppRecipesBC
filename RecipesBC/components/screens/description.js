@@ -1,12 +1,12 @@
-import React from 'react'
-import { View, Text, StyleSheet, FlatList, ImageBackground, ScrollView } from 'react-native';
+import React, {useState} from 'react'
+import { View, Text, StyleSheet, FlatList, ImageBackground } from 'react-native';
 import { IconButton, Colors } from 'react-native-paper';
+import firebase from "../firebase/firebase";
+import "firebase/firestore"
 
 const photo = { uri: 'https://www.cocina-ecuatoriana.com/base/stock/Recipe/3-image/3-image_web.jpg' };
-
 const Ingredientes = [
     {
-
         id: '1',
         n: '2 ½ tazas de almidón de yuca'
     },
@@ -27,11 +27,27 @@ const Ingredientes = [
         n: '4 onzas de mantequilla'
     },
 ]
+
+export default function Description({ navigation }) {
+    const db = firebase.firestore();
+  
+//leer Documentos
+
+    db.collection('recetas').get()
+  .then((snapshot) => {
+    snapshot.forEach((doc) => {   
+      console.log(doc.id, '=>', doc.data());
+    });
+  })
+  .catch((err) => {
+    console.log('Error getting documents', err);
+  }); 
+  
 function Item(props) {
     return (
         <View style={styles.ItemCont}>
-            <View style={{ width: 10, height: 10, borderRadius: 5, backgroundColor: '#FC5B27', }} />
-            <Text style={styles.description}>{props.item.n}</Text>
+            <View style={{ width: 10, height: 10, borderRadius: 5, backgroundColor: '#FC5B27', marginRight:5}} />
+    <Text style={styles.descrition}>{props.item.n}</Text>
         </View>
     )
 }
@@ -49,9 +65,8 @@ function FooterComponent() {
             <Text style={styles.descriptionPre}>Dejámos reposar el agua al menos 5 horas sin moverla, hasta que todo el almidón de haya depositado en el fondo. Cuando el almidón se haya depositado en el fondo, retiramos el agua con un cazo de servir. Deja secar el almidón al menos 8 horas.</Text>
         </>
     )
-}
+} 
 
-export default function Description({ navigation }) {
     return (
         <View style={styles.container}>
             <View style={styles.ContentImage}>
@@ -95,7 +110,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         marginLeft: 15,
         justifyContent: 'flex-start',
-        paddingBottom: 15
+        paddingBottom: 15,
     },
     ContentImage: {
         flex: 3.7,
